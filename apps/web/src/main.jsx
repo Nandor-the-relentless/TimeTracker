@@ -1,6 +1,6 @@
 // apps/web/src/main.jsx
 // WHY: Single Router. Public /login and /auth/callback, protected app at.
-import './app.css'
+import './App.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
