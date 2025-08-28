@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+apps/web/.env.local
+apps/web/.vercel
+apps/mobile/android
+apps/mobile/ios

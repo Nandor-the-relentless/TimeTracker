@@ -1,0 +1,38 @@
+import { supabase } from './supabase'
+import { ENV } from './env'
+
+const cb = `${ENV.APP_PUBLIC_URL.replace(/\/$/, '')}/auth/callback`
+
+export async function signInWithAzure() {
+  return supabase.auth.signInWithOAuth({
+    provider: 'azure',
+    options: { redirectTo: cb, scopes: 'openid profile email' }
+  })
+}
+
+export async function signInWithGoogle() {
+  return supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: cb, queryParams: { access_type: 'offline', prompt: 'consent' } }
+  })
+}
+
+export async function signInWithPassword(email: string, password: string) {
+  return supabase.auth.signInWithPassword({
+    email,
+    password,
+    options: { emailRedirectTo: cb }
+  })
+}
+
+export async function signUpWithPassword(email: string, password: string) {
+  return supabase.auth.signUp({
+    email,
+    password,
+    options: { emailRedirectTo: cb }
+  })
+}
+
+export async function signOut() {
+  return supabase.auth.signOut()
+}

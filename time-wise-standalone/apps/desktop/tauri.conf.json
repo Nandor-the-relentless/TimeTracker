@@ -1,0 +1,11 @@
+{
+  "package": { "productName": "TimeWise Desktop", "version": "1.0.0" },
+  "build": {
+    "beforeBuildCommand": "pnpm --filter @app/web build",
+    "frontendDist": "../web/dist",
+    "devUrl": "http://localhost:5173"
+  },
+  "app": {
+    "windows": [{ "label": "main", "title": "TimeWise", "width": 1280, "height": 800, "resizable": true }]
+  }
+}

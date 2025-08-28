@@ -1,0 +1,25 @@
+{
+  "name": "treats-time-by-wt-standalone",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+    "scripts": {
+    "dev:web": "pnpm -C apps/web dev",
+    "build:web": "pnpm -C apps/web build",
+    "preview:web": "pnpm -C apps/web preview",
+    "dev:desktop": "pnpm -C apps/desktop tauri dev",
+    "build:desktop": "pnpm -C apps/desktop tauri build",
+    "dev:mobile": "pnpm -C apps/mobile cap run ios --external || pnpm -C apps/mobile cap run android --external",
+    "build:mobile": "pnpm -C apps/web build && pnpm -C apps/mobile cap copy"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "eslint": "^9.19.0",
+    "husky": "^9.0.0",
+    "typescript": "^5.5.0"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
